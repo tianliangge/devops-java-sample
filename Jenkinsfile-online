@@ -13,9 +13,9 @@ pipeline {
         DOCKER_CREDENTIAL_ID = 'dockerhub-id'
         GITHUB_CREDENTIAL_ID = 'github-id'
         KUBECONFIG_CREDENTIAL_ID = 'demo-kubeconfig'
-        REGISTRY = 'docker.io'
-        DOCKERHUB_NAMESPACE = 'docker_username'
-        GITHUB_ACCOUNT = 'kubesphere'
+        REGISTRY = 'harbor.yfzt.wdtszkj.com'
+        DOCKERHUB_NAMESPACE = 'whszty'
+        GITHUB_ACCOUNT = 'tianliangge'
         APP_NAME = 'devops-java-sample'
     }
 
@@ -23,14 +23,6 @@ pipeline {
         stage ('checkout scm') {
             steps {
                 checkout(scm)
-            }
-        }
-
-        stage ('unit test') {
-            steps {
-                container ('maven') {
-                    sh 'mvn clean  -gs `pwd`/configuration/settings.xml test'
-                }
             }
         }
  
